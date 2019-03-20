@@ -205,6 +205,8 @@ def defend(current,maxHealth_A,maxHealth_D):
             print("Reduced damage to",dmg)
             attacker.hp-=dmg
             battle_state(maxHealth_A,maxHealth_D,defender)
+
+def evade(attacker, defender):
 def battle_state(maxHealth_A,maxHealth_D,defender):
     if attacker.hp<=0:
         attacker.hp=0
@@ -367,6 +369,8 @@ def battle_options(enemy,maxHealth_A,maxHealth_D,comp_options):
         else:
             give_stats(enemy)
             battle_options(enemy,maxHealth_A,maxHealth_D,comp_options)
+    elif battle==5:
+        evade()
     else:
         print("Not a valid option!")
         battle_options(enemy,maxHealth_A,maxHealth_D,comp_options)
@@ -695,7 +699,7 @@ def speedCheck(enemy,attacker,defender,maxHealth_A,maxHealth_D,comp_options,turn
         choose=random.randint(1,2)
         if choose=="1":
             if turn==1:
-                print("The enemy makes thier move!")
+                print("The enemy makes their move!")
                 identifier=comp(enemy,maxHealth_A,maxHealth_D,defender)
             else:
                 identifier=comp(enemy,maxHealth_A,maxHealth_D,defender)
